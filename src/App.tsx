@@ -1,28 +1,11 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 
-function App() {
-  function sum(a: number, b: number): number {
-    return a + b;
-  }
+function App(): JSX.Element {
+  const sum = (a: number, b: number): number => a + b;
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          {sum(2, 15)}
-        </p>
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>{sum(2, 18)}</p>
       </header>
     </div>
   );
