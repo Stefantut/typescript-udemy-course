@@ -33,6 +33,11 @@ function App(): JSX.Element {
     setTodos(newTodos);
   };
 
+  const removeTodo = (index: number): void => {
+    const newTodos: ITodo[] = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
   return (
     <div className="App">
       <h1>Todo List</h1>
@@ -48,9 +53,16 @@ function App(): JSX.Element {
       <section>
         {todos.map((todo: ITodo, index: number) => (
           <React.Fragment key={index}>
-            <div>{todo.text}</div>
+            <div
+              style={{ textDecoration: todo.complete ? "line-through" : "" }}
+            >
+              {todo.text}
+            </div>
             <button type="button" onClick={() => completeTodo(index)}>
               {todo.complete ? "Incomlete" : "Complete"}
+            </button>
+            <button type="button" onClick={() => removeTodo(index)}>
+              Remove
             </button>
           </React.Fragment>
         ))}
