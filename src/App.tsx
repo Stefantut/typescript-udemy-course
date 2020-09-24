@@ -1,12 +1,13 @@
 import React from "react";
 
 function App(): JSX.Element {
-  const sum = (a: number, b: number): number => a + b;
   return (
     <div className="App">
-      <header className="App-header">
-        <p>{sum(2, 18)}</p>
-      </header>
+      <h1>Todo List</h1>
+      <form>
+        <input type="text" required />
+        <button type="submit">Add Todo</button>
+      </form>
     </div>
   );
 }
