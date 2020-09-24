@@ -22,8 +22,14 @@ function App(): JSX.Element {
     setValue("");
   };
 
-  const addTodo = (text: string) => {
+  const addTodo = (text: string): void => {
     const newTodos: ITodo[] = [...todos, { text, complete: false }];
+    setTodos(newTodos);
+  };
+
+  const completeTodo = (index: number): void => {
+    const newTodos: ITodo[] = [...todos];
+    newTodos[index].complete = !newTodos[index].complete;
     setTodos(newTodos);
   };
 
@@ -41,7 +47,12 @@ function App(): JSX.Element {
       </form>
       <section>
         {todos.map((todo: ITodo, index: number) => (
-          <div key={index}>{todo.text}</div>
+          <React.Fragment key={index}>
+            <div>{todo.text}</div>
+            <button type="button" onClick={() => completeTodo(index)}>
+              {todo.complete ? "Incomlete" : "Complete"}
+            </button>
+          </React.Fragment>
         ))}
       </section>
     </div>
