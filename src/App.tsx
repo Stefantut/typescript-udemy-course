@@ -1,14 +1,32 @@
 import React, { useState } from "react";
 
-type FormElem = React.FormEvent<HTMLFormElement>;
+type FormElem = React.FormEvent<HTMLFormElement>; // type for e
+
+interface ITodo {
+  text: string;
+  complete: boolean;
+}
+
+// Extending interface, can't be done with types
+interface ITodo2 extends ITodo {
+  tags: string[];
+}
 
 function App(): JSX.Element {
   const [value, setValue] = useState<string>("");
+  const [todos, setTodos] = useState<ITodo[]>([]); // array of objects
+
   const handleSubmit = (e: FormElem): void => {
     e.preventDefault();
+    addTodo(value);
     setValue("");
   };
 
+  const addTodo = (text: string) => {
+    const newTodos: ITodo[] = [...todos, { text, complete: false }];
+    setTodos(newTodos);
+  };
+  console.log(todos);
   return (
     <div className="App">
       <h1>Todo List</h1>
