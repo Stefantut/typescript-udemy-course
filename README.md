@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Todo App built following this course:
+https://www.udemy.com/course/typescript-with-react-hooks-and-context
 
 ## Available Scripts
 
