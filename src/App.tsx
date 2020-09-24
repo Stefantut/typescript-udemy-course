@@ -26,7 +26,7 @@ function App(): JSX.Element {
     const newTodos: ITodo[] = [...todos, { text, complete: false }];
     setTodos(newTodos);
   };
-  console.log(todos);
+
   return (
     <div className="App">
       <h1>Todo List</h1>
@@ -39,6 +39,11 @@ function App(): JSX.Element {
         />
         <button type="submit">Add Todo</button>
       </form>
+      <section>
+        {todos.map((todo: ITodo, index: number) => (
+          <div key={index}>{todo.text}</div>
+        ))}
+      </section>
     </div>
   );
 }
